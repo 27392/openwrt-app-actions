@@ -7,16 +7,15 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_ARCH_SUFFIX:=$(ARCH)
-PKG_NAME:=sun-panel
+PKG_ARCH_sunpanel:=$(ARCH)
+
+PKG_NAME:=sunpanel
 PKG_VERSION:=1.7.0
-PKG_RELEASE:=7
-PKG_SOURCE:=$(PKG_NAME)_v$(PKG_VERSION)_linux_$(PKG_ARCH_SUFFIX).tar.gz
+PKG_RELEASE:=8
+PKG_SOURCE:=sun-panel_v$(PKG_VERSION)_linux_arm64.tar.gz
 PKG_SOURCE_URL:=https://github.com/hslr-s/sun-panel/releases/download/v$(PKG_VERSION)/
 PKG_HASH:=1fb0ecb45b92c72c73a4e4f79d04af8ac23d7e50bf5b2607d808de4b9b664d84
-
-
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_BUILD_DIR:=$(BUILD_DIR)/sun-panel_v$(PKG_VERSION)_linux_arm64
 
 PKG_BUILD_PARALLEL:=1
 PKG_USE_MIPS16:=0
@@ -28,7 +27,7 @@ define Package/$(PKG_NAME)
 	CATEGORY:=Network
 	SUBMENU:=Web Servers/Proxies
 	TITLE:=SunPanel, NAS navigation panel.
-	DEPENDS:=@(x86_64||aarch64) +ubus +uci +bash
+	DEPENDS:=@(x86_64||aarch64||arm) +ubus +uci +bash
 	URL:=https://sun-panel-doc.enianteam.com/
 endef
 
@@ -56,7 +55,7 @@ endef
 
 define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/usr/sbin $(1)/etc/init.d $(1)/etc/config $(1)/usr/libexec/istorec $(1)/usr/share/sunpanel $(1)/etc/uci-defaults
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sun-panel $(1)/usr/sbin/sunpanelbin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sun-panel $(1)/usr/sbin/sunpanelbin  # 假设解压后的二进制文件名为 `sun-panel`
 	$(INSTALL_BIN) ./files/sunpanel.init $(1)/etc/init.d/sunpanel
 	$(CP) ./files/sunpanel_conf.lua $(1)/usr/libexec/istorec/
 	$(CP) ./files/conf.temp $(1)/usr/share/sunpanel/
