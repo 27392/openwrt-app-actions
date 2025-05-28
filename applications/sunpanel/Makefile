@@ -7,13 +7,14 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_ARCH_SUFFIX:=$(subst x86_64,amd64,$(subst aarch64,arm64,$(ARCH)))
-PKG_NAME:=sunpanel
+PKG_ARCH_SUFFIX:=$(ARCH)
+PKG_NAME:=sun-panel
 PKG_VERSION:=1.7.0
 PKG_RELEASE:=7
 PKG_SOURCE:=$(PKG_NAME)_v$(PKG_VERSION)_linux_$(PKG_ARCH_SUFFIX).tar.gz
 PKG_SOURCE_URL:=https://github.com/hslr-s/sun-panel/releases/download/v$(PKG_VERSION)/
 PKG_HASH:=1fb0ecb45b92c72c73a4e4f79d04af8ac23d7e50bf5b2607d808de4b9b664d84
+
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
