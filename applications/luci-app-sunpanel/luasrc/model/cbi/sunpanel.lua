@@ -4,8 +4,8 @@
 local block_model = require "luci.model.sunpanel"
 local m, s, o
 
-m = Map("sunpanel", translate("SunPanel"), translate("Server, NAS navigation panel, Homepage, Browser homepage. Login:") .. "admin@sun.cc/12345678"
-    .. translate("Official website:") .. ', <a href=\"https://doc.sun-panel.top" target=\"_blank\">官网</a>')
+m = Map("sunpanel", translate("SunPanel"), translate("Server, NAS navigation panel, Homepage, Browser homepage. Login:") .. "admin@sun.cc/12345678, "
+    .. translate("Official website:") .. ' <a href=\"https://doc.sun-panel.top" target=\"_blank\">官网</a>')
 
 m:section(SimpleSection).template  = "sunpanel/status"
 
