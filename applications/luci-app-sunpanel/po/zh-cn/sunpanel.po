@@ -4,6 +4,15 @@ msgstr "Content-Type: text/plain; charset=UTF-8"
 msgid "Official website:"
 msgstr "官方网站："
 
+msgid "The SunPanel service is running."
+msgstr "SunPanel 运行中"
+
+msgid "The SunPanel service is not running."
+msgstr "SunPanel 未运行"
+
+msgid "Click to open SunPanel"
+msgstr "点击打开 SunPanel"
+
 msgid "Config path"
 msgstr "配置文件路径"
 

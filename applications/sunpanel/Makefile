@@ -11,7 +11,7 @@ PKG_ARCH_sunpanel:=$(ARCH)
 
 PKG_NAME:=sunpanel
 PKG_VERSION:=1.7.0
-PKG_RELEASE:=8
+PKG_RELEASE:=1
 PKG_SOURCE:=sun-panel_v$(PKG_VERSION)_linux_musl_arm64.tar.gz
 PKG_SOURCE_URL:=https://github.com/hslr-s/sun-panel/releases/download/v$(PKG_VERSION)/
 PKG_HASH:=41fe9abfb19117d774d25e6e20673a7b055be6c3fa17791f2296209ab14a2044
@@ -27,7 +27,7 @@ define Package/$(PKG_NAME)
 	CATEGORY:=Network
 	SUBMENU:=Web Servers/Proxies
 	TITLE:=SunPanel, NAS navigation panel.
-	DEPENDS:=@(aarch64) +ubus +uci +bash  # 明确指定 aarch64 架构
+	DEPENDS:=@(aarch64) +ubus +uci +bash
 	URL:=https://sun-panel-doc.enianteam.com/
 endef
 
